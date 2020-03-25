@@ -1,0 +1,7 @@
+.column-status {
+  text-decoration: none;
+}
+
+.column-status:hover, .column-status:focus {
+  text-decoration: underline;
+}
