@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-lancamentos-cadastro',
-  templateUrl: './lancamentos-cadastro.component.html',
-  styleUrls: ['./lancamentos-cadastro.component.css']
+  selector: 'app-lancamento-cadastro',
+  templateUrl: './lancamento-cadastro.component.html',
+  styleUrls: ['./lancamento-cadastro.component.css']
 })
-export class LancamentosCadastroComponent {
+export class LancamentoCadastroComponent {
 
   tipos = [
     { label: 'Receita', value: 'RECEITA' },
