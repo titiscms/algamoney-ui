@@ -19,9 +19,11 @@ import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
-import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
-import { PessoasCadastroComponent } from './pessoas-cadastro/pessoas-cadastro.component';
+import { LancamentosCadastroComponent } from './lancamento-cadastro/lancamentos-cadastro.component';
+import { PessoasCadastroComponent } from './pessoa-cadastro/pessoas-cadastro.component';
 import { MessageComponent } from './message/message.component';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
+import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MessageComponent } from './message/message.component';
     PessoasPesquisaComponent,
     LancamentosCadastroComponent,
     PessoasCadastroComponent,
-    MessageComponent
+    MessageComponent,
+    LancamentosGridComponent,
+    PessoasGridComponent
   ],
   imports: [
     BrowserModule,
