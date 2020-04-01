@@ -21,12 +21,16 @@
 
       <div class="ui-g-12  ui-md-9  ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text" />
+        <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5" />
+
+        <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
+        <!-- "?" operador elvis Ex: {{ descricao.errors?.minlength?.requiredLength }} -->
+        <app-message [control]="descricao" error="minlength" text="Minimo de {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
       </div>
 
       <div class="ui-g-12  ui-md-3  ui-fluid">
         <label>Valor</label>
-        <input pInputText type="text" placeholder="0,00" name="valor" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel>
+        <input pInputText type="text" placeholder="0,00" name="valor" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel />
       </div>
 
       <div class="ui-g-12  ui-md-6  ui-fluid">
