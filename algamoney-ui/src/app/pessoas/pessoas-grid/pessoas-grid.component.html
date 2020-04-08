@@ -1,7 +1,12 @@
-<p-dataTable [value]="pessoas" [responsive]="true" [paginator]="true" [rows]="6">
+<p-dataTable [value]="pessoas" [responsive]="true" emptyMessage="Nenhuma pessoa encontrada"
+      [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)">
+
   <p-column field="nome" header="Nome"></p-column>
-  <p-column field="cidade" header="Cidade"></p-column>
-  <p-column field="estado" header="Estado"></p-column>
+
+  <p-column field="endereco.cidade" header="Cidade"></p-column>
+
+  <p-column field="endereco.estado" header="Estado"></p-column>
+
   <p-column field="ativo" header="Status">
     <ng-template let-pessoas="rowData" pTemplate="body">
       <!-- Outra maneira de fazer o tooltip-->
@@ -11,10 +16,12 @@
       </a>
     </ng-template>
   </p-column>
+
   <p-column styleClass="col-acoes">
     <ng-template pTemplate="body">
       <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
       <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
     </ng-template>
   </p-column>
+
 </p-dataTable>
