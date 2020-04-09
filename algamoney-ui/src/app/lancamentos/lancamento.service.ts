@@ -60,8 +60,8 @@ export class LancamentoService {
 
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-    return this.http.delete(`${this.lancamentoURL}/${codigo}777`, { headers })
+    return this.http.delete(`${this.lancamentoURL}/${codigo}`, { headers })
       .toPromise()
-      .then(() => null)
+      .then(() => null);
   }
 }
