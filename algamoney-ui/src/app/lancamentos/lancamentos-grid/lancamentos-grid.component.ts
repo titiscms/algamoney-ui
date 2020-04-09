@@ -1,9 +1,11 @@
 import { Component, Input, ViewChild } from '@angular/core';
 
-import { LazyLoadEvent } from 'primeng/components/common/api';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/api';
+import { ToastyService } from 'ng2-toasty';
 
 import { LancamentosPesquisaComponent } from '../lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentoFiltro, LancamentoService } from './../lancamento.service';
+import { ErrorHandlerService } from './../../core/error-handler.service';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -19,12 +21,24 @@ export class LancamentosGridComponent {
 
   constructor(
     private lancamentoPesquisa: LancamentosPesquisaComponent,
-    private lancamentoService: LancamentoService
+    private lancamentoService: LancamentoService,
+    private toastyService: ToastyService,
+    private confirmationService: ConfirmationService,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows
     this.lancamentoPesquisa.pesquisar(pagina);
+  }
+
+  confirmarExclusao(lancamento: any) {
+    this.confirmationService.confirm({
+      message: `Tem certeza que deseja excluir o lançamento ${lancamento.descricao} de valor ${lancamento.valor}?`,
+      accept: () => {
+        this.excluir(lancamento);
+      }
+    });
   }
 
   excluir(lancamento: any) {
@@ -35,6 +49,10 @@ export class LancamentosGridComponent {
         } else {
           this.grid.first = 0;
         }
-      });
+
+        this.toastyService.success(`Lançamento ${lancamento.descricao} excluído com sucesso`)
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+
   }
 }
