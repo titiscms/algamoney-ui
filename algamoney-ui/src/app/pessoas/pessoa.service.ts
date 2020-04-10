@@ -19,9 +19,7 @@ export class PessoaService {
   pesquisar(filtro: PessoaFiltro): Promise<any> {
     const params = new URLSearchParams();
     const headers = new Headers();
-
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
     params.set('page', filtro.pagina.toString());
     params.set('size', filtro.itensPorPagina.toString());
 
@@ -46,7 +44,6 @@ export class PessoaService {
 
   listarTodas(): Promise<any> {
     const headers = new Headers();
-
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     return this.http.get(`${this.pessoaURL}`, { headers })
@@ -56,10 +53,19 @@ export class PessoaService {
 
   excluir(codigo: number): Promise<void> {
     const headers = new Headers();
-
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     return this.http.delete(`${this.pessoaURL}/${codigo}`, { headers })
+      .toPromise()
+      .then(() => null);
+  }
+
+  atualizarStatus(codigo: number, ativo: boolean): Promise<void> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.pessoaURL}/${codigo}/ativo`, ativo, { headers } )
       .toPromise()
       .then(() => null);
   }

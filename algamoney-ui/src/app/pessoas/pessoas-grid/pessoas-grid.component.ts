@@ -50,7 +50,20 @@ export class PessoasGridComponent {
           this.grid.first = 0;
         }
 
-        this.toastyService.success(`Pessoa ${pessoa.nome} excluído com sucesso`);
+        this.toastyService.success(`Pessoa ${pessoa.nome} excluído com sucesso!`);
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  atualizarStatus(pessoa: any) {
+    const novoStatus = !pessoa.ativo;
+
+    this.pessoaService.atualizarStatus(pessoa.codigo, novoStatus)
+      .then(() => {
+        const acao = novoStatus ? 'ativada' : 'desativada';
+
+        pessoa.ativo = novoStatus;
+        this.toastyService.success(`Pessoa ${pessoa.nome} ${acao} com sucesso!`);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

@@ -8,19 +8,19 @@
   <p-column field="endereco.estado" header="Estado"></p-column>
 
   <p-column field="ativo" header="Status">
-    <ng-template let-pessoas="rowData" pTemplate="body">
+    <ng-template let-pessoa="rowData" pTemplate="body">
       <!-- Outra maneira de fazer o tooltip-->
       <!-- <a href="javascript:;" class="column-status" pTooltip="{{pessoas.ativo === true ? 'Desativar' : 'Ativar'}}" tooltipPosition="top"> -->
-      <a href="javascript:;" class="column-status" [pTooltip]="pessoas.ativo === true ? 'Desativar' : 'Ativar'" tooltipPosition="top">
-        {{ pessoas.ativo ? 'Ativo' : 'Inativo' }}
+      <a href="javascript:;" class="column-status" [pTooltip]="pessoa.ativo === true ? 'Desativar' : 'Ativar'" tooltipPosition="top" (click)="atualizarStatus(pessoa)">
+        {{ pessoa.ativo ? 'Ativo' : 'Inativo' }}
       </a>
     </ng-template>
   </p-column>
 
   <p-column styleClass="col-acoes">
-    <ng-template let-pes="rowData" pTemplate="body">
+    <ng-template let-pessoa="rowData" pTemplate="body">
       <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(pes)"></button>
+      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(pessoa)"></button>
     </ng-template>
   </p-column>
 
