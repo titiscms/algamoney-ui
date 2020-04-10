@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import * as moment from 'moment';
 
+import { Lancamento } from './../core/model';
+
 export class LancamentoFiltro {
   descricao: string;
   dataVencimentoInicio: Date;
@@ -22,9 +24,7 @@ export class LancamentoService {
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const params = new URLSearchParams();
     const headers = new Headers();
-
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
     params.set('page', filtro.pagina.toString());
     params.set('size', filtro.itensPorPagina.toString());
 
@@ -57,11 +57,20 @@ export class LancamentoService {
 
   excluir(codigo: number): Promise<void> {
     const headers = new Headers();
-
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     return this.http.delete(`${this.lancamentoURL}/${codigo}`, { headers })
       .toPromise()
       .then(() => null);
+  }
+
+  adicionar(lancamento: Lancamento): Promise<Lancamento> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(`${this.lancamentoURL}`, JSON.stringify(lancamento), { headers })
+      .toPromise()
+      .then(response => response.json());
   }
 }
