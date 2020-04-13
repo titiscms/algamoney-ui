@@ -53,6 +53,5 @@ export class LancamentosGridComponent {
         this.toastyService.success(`Lançamento ${lancamento.descricao} excluído com sucesso`)
       })
       .catch(erro => this.errorHandler.handle(erro));
-
   }
 }
