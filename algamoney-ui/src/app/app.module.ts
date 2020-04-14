@@ -19,9 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     HttpModule,
 
+    CoreModule,
     LancamentosModule,
     PessoasModule,
-    CoreModule,
     SegurancaModule,
     AppRoutingModule
   ],
