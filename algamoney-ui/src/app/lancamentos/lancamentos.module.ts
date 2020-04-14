@@ -18,12 +18,12 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 import { SharedModule } from './../shared/shared.module';
+import { LancamentoRoutingModule } from './lancamentos-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
 
     CurrencyMaskModule,
 
@@ -36,7 +36,8 @@ import { SharedModule } from './../shared/shared.module';
     SelectButtonModule,
     TooltipModule,
 
-    SharedModule
+    SharedModule,
+    LancamentoRoutingModule
   ],
   declarations: [
     LancamentoCadastroComponent,
