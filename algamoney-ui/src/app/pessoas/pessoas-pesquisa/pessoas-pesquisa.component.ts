@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 import { ErrorHandlerService } from './../../core/error-handler.service';
@@ -16,10 +17,13 @@ export class PessoasPesquisaComponent implements OnInit {
 
   constructor(
     private pessoaService: PessoaService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private titulo: Title
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.titulo.setTitle('Pesquisa pessoa');
+  }
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;

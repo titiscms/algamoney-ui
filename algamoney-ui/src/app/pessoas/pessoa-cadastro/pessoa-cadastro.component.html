@@ -63,8 +63,8 @@
 
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar" [disabled]="!pessoaCadastroForm.valid"></button>
-        <button pButton type="button" class="ui-button-info" label="Novo"></button>
-        <a href="javascript:;">Voltar para a pesquisa</a>
+        <button pButton type="button" class="ui-button-info" label="Novo" (click)="novo(pessoaCadastroForm)"></button>
+        <a routerLink="/pessoas">Voltar para a pesquisa</a>
       </div>
     </div>
   </form>

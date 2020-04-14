@@ -62,7 +62,7 @@ export class PessoaService {
       .then(() => null);
   }
 
-  atualizarStatus(codigo: number, ativo: boolean): Promise<void> {
+  alterarStatus(codigo: number, ativo: boolean): Promise<void> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
     headers.append('Content-Type', 'application/json');
@@ -79,11 +79,25 @@ export class PessoaService {
 
     return this.http.post(`${this.pessoaURL}`, JSON.stringify(pessoa), { headers })
       .toPromise()
-      .then(response => {
-        const responseJson = response.json()
+      .then(response => response.json());
+  }
 
-        console.log(responseJson)
-        return responseJson;
-      });
+  atualizar(pessoa: Pessoa): Promise<Pessoa> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.pessoaURL}/${pessoa.codigo}`, JSON.stringify(pessoa), { headers })
+      .toPromise()
+      .then(response => response.json());
+  }
+
+  buscarPorCodigo(codigo: number) {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(`${this.pessoaURL}/${codigo}`, { headers })
+      .toPromise()
+      .then(response => response.json())
   }
 }

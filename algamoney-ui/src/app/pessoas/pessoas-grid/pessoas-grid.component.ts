@@ -58,7 +58,7 @@ export class PessoasGridComponent {
   atualizarStatus(pessoa: any) {
     const novoStatus = !pessoa.ativo;
 
-    this.pessoaService.atualizarStatus(pessoa.codigo, novoStatus)
+    this.pessoaService.alterarStatus(pessoa.codigo, novoStatus)
       .then(() => {
         const acao = novoStatus ? 'ativada' : 'desativada';
 

@@ -8,10 +8,11 @@ import { InputMaskModule } from 'primeng/components/inputmask/inputmask';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 
+import { SharedModule } from '../shared/shared.module';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
-import { SharedModule } from '../shared/shared.module';
+import { PessoasRoutingModule } from './pessoas-routing.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
     InputTextModule,
     TooltipModule,
 
-    SharedModule
+    SharedModule,
+    PessoasRoutingModule
   ],
   declarations: [
     PessoaCadastroComponent,
