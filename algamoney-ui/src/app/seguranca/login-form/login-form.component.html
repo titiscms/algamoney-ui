@@ -1,5 +1,6 @@
 <div class="container">
-  <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="login(usuario.value, senha.value)">
+
+  <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="login(usuario.value, senha.value); senha.value=''; usuario.focus()">
     <div class="ui-g  login-group">
 
       <div class="ui-g-12  ui-md-6  ui-lg-4  ui-fluid">
@@ -7,9 +8,9 @@
       </div>
 
       <div class="ui-g-12  ui-md-6  ui-lg-4  ui-fluid">
-        <input pInputText class="login-item" type="email" placeholder="E-mail" name="usuario" #usuario="ngModel" ngModel email required />
+        <input pInputText class="login-item" type="email" placeholder="E-mail" name="usuario" #usuario ngModel email required autofocus />
 
-        <input pInputText class="login-item" type="password" placeholder="Senha" name="senha" #senha="ngModel" ngModel required />
+        <input pInputText class="login-item" type="password" placeholder="Senha" name="senha" #senha ngModel required />
 
         <button pButton type="submit" label="Login" [disabled]="!loginForm.valid"></button>
       </div>
