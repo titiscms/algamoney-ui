@@ -1,0 +1,9 @@
+.login-item {
+  margin-bottom: 15px;
+}
+
+.login-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
