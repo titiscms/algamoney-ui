@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { ToastyService } from 'ng2-toasty';
 
@@ -31,7 +32,9 @@ export class LancamentoCadastroComponent implements OnInit {
     private lancamentoService: LancamentoService,
     private toastyService: ToastyService,
     private errorHandler: ErrorHandlerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private titulo: Title
   ) {}
 
   ngOnInit() {
@@ -41,6 +44,7 @@ export class LancamentoCadastroComponent implements OnInit {
       this.carregarLancamento(codigoLancamento);
     }
 
+    this.titulo.setTitle('Novo lançamento');
     this.carregarCategorias();
     this.carregarPessoas();
   }
@@ -53,6 +57,7 @@ export class LancamentoCadastroComponent implements OnInit {
     this.lancamentoService.buscarPorCodigo(codigo)
       .then( lancamento => {
         this.lancamento = lancamento;
+        this.atualizaTitulo();
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -83,11 +88,12 @@ export class LancamentoCadastroComponent implements OnInit {
 
   adicionarLancamento(form: FormControl) {
     return this.lancamentoService.adicionar(this.lancamento)
-      .then(() => {
+      .then(lancamentoAdicionado => {
         this.toastyService.success('Lançamento adicionado com sucesso!');
 
-        form.reset();
-        this.lancamento = new Lancamento();
+        // form.reset();
+        // this.lancamento = new Lancamento();
+        this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo]);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -98,7 +104,22 @@ export class LancamentoCadastroComponent implements OnInit {
         this.lancamento = lancamento;
 
         this.toastyService.success('Lançamento alterado com sucesso!')
+        this.atualizaTitulo();
       })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  novo(form: FormControl) {
+    form.reset();
+
+    setTimeout(() => {
+      this.lancamento = new Lancamento();
+    }, 1);
+
+    this.router.navigate(['/lancamentos/novo']);
+  }
+
+  atualizaTitulo() {
+    this.titulo.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`)
   }
 }

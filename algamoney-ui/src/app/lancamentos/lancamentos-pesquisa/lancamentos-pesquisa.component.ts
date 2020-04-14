@@ -1,5 +1,6 @@
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
 
@@ -16,10 +17,13 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   constructor(
     private lancamentoService: LancamentoService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private titulo: Title
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.titulo.setTitle('Pesquisa lançamento');
+   }
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
