@@ -34,7 +34,7 @@ export class LancamentosGridComponent {
 
   confirmarExclusao(lancamento: any) {
     this.confirmationService.confirm({
-      message: `Tem certeza que deseja excluir o lançamento ${lancamento.descricao} de valor ${lancamento.valor}?`,
+      message: `Tem certeza que deseja excluir o lançamento ${lancamento.descricao}?`,
       accept: () => {
         this.excluir(lancamento);
       }
