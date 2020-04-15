@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pagina-nao-encontrada',
+  selector: 'app-nao-autorizado',
   template: `
     <div class="container">
-      <h1 class="text-center">Página não encontrada.</h1>
+      <h1 class="text-center">Acesso negado!</h1>
     </div>
   `,
   styles: [`
@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
     }`
   ]
 })
-export class PaginaNaoEncontradaComponent implements OnInit {
+export class NaoAutorizadoComponent implements OnInit {
 
   constructor() { }
 

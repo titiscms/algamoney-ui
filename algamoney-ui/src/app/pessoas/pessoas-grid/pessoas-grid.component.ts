@@ -6,6 +6,7 @@ import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/ap
 
 import { PessoaFiltro, PessoaService } from './../pessoa.service';
 import { PessoasPesquisaComponent } from './../pessoas-pesquisa/pessoas-pesquisa.component';
+import { AuthService } from 'app/seguranca/auth.service';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -24,7 +25,8 @@ export class PessoasGridComponent {
     private pessoaService: PessoaService,
     private toastyService: ToastyService,
     private confirmationService: ConfirmationService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private auth: AuthService,
   ) { }
 
   aoMudarPagina(event: LazyLoadEvent) {

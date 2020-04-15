@@ -6,6 +6,7 @@ import { ToastyService } from 'ng2-toasty';
 import { LancamentosPesquisaComponent } from '../lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentoFiltro, LancamentoService } from './../lancamento.service';
 import { ErrorHandlerService } from './../../core/error-handler.service';
+import { AuthService } from './../../seguranca/auth.service';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -24,7 +25,8 @@ export class LancamentosGridComponent {
     private lancamentoService: LancamentoService,
     private toastyService: ToastyService,
     private confirmationService: ConfirmationService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private auth: AuthService,
   ) {}
 
   aoMudarPagina(event: LazyLoadEvent) {
