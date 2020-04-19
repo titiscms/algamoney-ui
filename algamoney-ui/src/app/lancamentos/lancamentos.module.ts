@@ -17,7 +17,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 import { SharedModule } from './../shared/shared.module';
-import { LancamentoRoutingModule } from './lancamentos-routing.module';
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 
 @NgModule({
   imports: [
@@ -36,7 +36,7 @@ import { LancamentoRoutingModule } from './lancamentos-routing.module';
     TooltipModule,
 
     SharedModule,
-    LancamentoRoutingModule
+    LancamentosRoutingModule
   ],
   declarations: [
     LancamentoCadastroComponent,

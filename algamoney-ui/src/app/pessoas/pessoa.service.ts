@@ -76,6 +76,6 @@ export class PessoaService {
   buscarPorCodigo(codigo: number) {
     return this.http.get(`${this.pessoaURL}/${codigo}`)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json());
   }
 }
