@@ -1,8 +1,9 @@
 import { HttpModule } from '@angular/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import LocalePt from '@angular/common/locales/pt';
 
 import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
 import { ConfirmationService } from 'primeng/components/common/api';
@@ -17,6 +18,8 @@ import { PessoaService } from 'app/pessoas/pessoa.service';
 import { CategoriaService } from './../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
+
+registerLocaleData(LocalePt);
 
 @NgModule({
   imports: [
@@ -47,7 +50,7 @@ import { NaoAutorizadoComponent } from './nao-autorizado.component';
     ConfirmationService,
     JwtHelper,
     Title,
-    { provide: LOCALE_ID, useValue: 'pt-BR'}
+    { provide: LOCALE_ID, useValue: 'pt'}
   ]
 })
 export class CoreModule { }
