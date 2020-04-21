@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 
-import { AuthHttp, AuthConfig, JwtHelper } from 'angular2-jwt';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from './auth.service';
 
-export class NotAuthenticationError {
-
-}
+export class NotAuthenticationError { }
 
 @Injectable()
 export class MoneyHttp extends AuthHttp {
@@ -42,11 +40,11 @@ export class MoneyHttp extends AuthHttp {
   }
 
   public post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.fazerRequisicao(() => super.post(url, options));
+    return this.fazerRequisicao(() => super.post(url, body, options));
   }
 
   public put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.fazerRequisicao(() => super.put(url, options));
+    return this.fazerRequisicao(() => super.put(url, body, options));
   }
 
   fazerRequisicao(fn: Function): Observable<Response> {

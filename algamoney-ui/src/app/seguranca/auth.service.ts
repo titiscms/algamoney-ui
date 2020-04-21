@@ -1,10 +1,10 @@
-import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import { JwtHelper } from 'angular2-jwt';
-
 import 'rxjs/add/operator/toPromise';
+
+import { environment } from './../../environments/environment';
 
 @Injectable()
 export class AuthService {

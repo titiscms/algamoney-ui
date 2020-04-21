@@ -1,9 +1,9 @@
 export class Endereco {
   logradouro: string;
-  numero: number;
+  numero: string;
   complemento: string;
   bairro: string;
-  cep: number;
+  cep: string;
   cidade: string;
   estado: string;
 

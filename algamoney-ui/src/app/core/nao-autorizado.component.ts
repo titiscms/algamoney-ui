@@ -7,11 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <h1 class="text-center">Acesso negado!</h1>
     </div>
   `,
-  styles: [`
-    .text-center {
-      text-align: center;
-    }`
-  ]
+  styles: []
 })
 export class NaoAutorizadoComponent implements OnInit {
 
