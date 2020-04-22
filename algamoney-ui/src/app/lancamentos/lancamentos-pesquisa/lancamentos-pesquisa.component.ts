@@ -1,8 +1,8 @@
-import { ErrorHandlerService } from './../../core/error-handler.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
+import { ErrorHandlerService } from './../../core/error-handler.service';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',

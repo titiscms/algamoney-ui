@@ -1,12 +1,12 @@
-import { ToastyService } from 'ng2-toasty';
-import { ErrorHandlerService } from './../../core/error-handler.service';
 import { Component, Input, ViewChild } from '@angular/core';
 
-import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/api';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
+import { ToastyService } from 'ng2-toasty';
 
 import { PessoaFiltro, PessoaService } from './../pessoa.service';
 import { PessoasPesquisaComponent } from './../pessoas-pesquisa/pessoas-pesquisa.component';
 import { AuthService } from 'app/seguranca/auth.service';
+import { ErrorHandlerService } from './../../core/error-handler.service';
 
 @Component({
   selector: 'app-pessoas-grid',

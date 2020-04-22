@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 
-import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/api';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
 import { ToastyService } from 'ng2-toasty';
 
 import { LancamentosPesquisaComponent } from '../lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -27,7 +27,7 @@ export class LancamentosGridComponent {
     private confirmationService: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private auth: AuthService,
-  ) {}
+  ) { }
 
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows

@@ -5,8 +5,8 @@ import { Title } from '@angular/platform-browser';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import LocalePt from '@angular/common/locales/pt';
 
-import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
-import { ConfirmationService } from 'primeng/components/common/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 import { ToastyModule } from 'ng2-toasty';
 import { JwtHelper } from 'angular2-jwt';
 

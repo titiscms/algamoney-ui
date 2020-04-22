@@ -1,0 +1,8 @@
+.column-status {
+    text-decoration: none;
+    color: #222222;
+  }
+  
+  .column-status:hover, .column-status:focus {
+    text-decoration: underline;
+  }
