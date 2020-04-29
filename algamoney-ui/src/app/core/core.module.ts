@@ -17,6 +17,7 @@ import { LancamentoService } from 'app/lancamentos/lancamento.service';
 import { PessoaService } from 'app/pessoas/pessoa.service';
 import { CategoriaService } from './../categorias/categoria.service';
 import { DashboardService } from './../dashboard/dashboard.service';
+import { RelatorioService } from './../relatorios/relatorio.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
 
@@ -46,6 +47,7 @@ registerLocaleData(LocalePt);
     PessoaService,
     CategoriaService,
     DashboardService,
+    RelatorioService,
     ErrorHandlerService,
     AuthService,
 
