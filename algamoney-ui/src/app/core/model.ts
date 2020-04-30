@@ -9,11 +9,19 @@ export class Endereco {
 
 }
 
+export class Contato {
+  codigo: number;
+  nome: string;
+  email: string;
+  telefone: string;
+}
+
 export class Pessoa {
   codigo: number;
   nome: string;
   ativo = true;
   endereco = new Endereco();
+  contatos = new Array<Contato>();
 }
 
 export class Categoria {

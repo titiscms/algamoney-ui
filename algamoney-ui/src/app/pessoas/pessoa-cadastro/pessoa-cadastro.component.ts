@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ToastyService } from 'ng2-toasty';
 
-import { Pessoa } from 'app/core/model';
+import { Pessoa, Contato } from 'app/core/model';
 import { PessoaService } from '../pessoa.service';
 import { ErrorHandlerService } from 'app/core/error-handler.service';
 
@@ -17,6 +17,8 @@ import { ErrorHandlerService } from 'app/core/error-handler.service';
 export class PessoaCadastroComponent implements OnInit {
 
   pessoa = new Pessoa();
+  exibindoFormularioContato = false;
+  contato: Contato;
 
   constructor(
     private pessoaService: PessoaService,
@@ -91,5 +93,10 @@ export class PessoaCadastroComponent implements OnInit {
 
   atualizarTitulo() {
     this.titulo.setTitle(`Edição de pessoa: ${this.pessoa.nome}`);
+  }
+
+  prepararNovoContato() {
+    this.exibindoFormularioContato = true;
+    this.contato = new Contato();
   }
 }

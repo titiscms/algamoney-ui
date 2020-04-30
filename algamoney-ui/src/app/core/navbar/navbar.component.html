@@ -14,28 +14,32 @@
     <li
       class="navbar-item"
       routerLinkActive="ativo"
-      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"
+      (click)="exibindoMenu = !exibindoMenu">
         <a routerLink="/dashboard">Dashboard</a>
     </li>
 
     <li 
       class="navbar-item" 
       routerLinkActive="ativo" 
-      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"
+      (click)="exibindoMenu = !exibindoMenu">
         <a routerLink="/lancamentos">Lançamentos</a>
     </li>
 
     <li 
       class="navbar-item" 
       routerLinkActive="ativo" 
-      *ngIf="auth.temPermissao('ROLE_PESQUISAR_PESSOA')">
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_PESSOA')"
+      (click)="exibindoMenu = !exibindoMenu">
         <a routerLink="/pessoas">Pessoas</a>
     </li>
 
     <li
       class="navbar-item"
       routerLinkActive="ativo"
-      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"
+      (click)="exibindoMenu = !exibindoMenu">
         <a routerLink="/relatorios/lancamentos">Relatórios</a>
     </li>
 
