@@ -17,8 +17,6 @@ import { ErrorHandlerService } from 'app/core/error-handler.service';
 export class PessoaCadastroComponent implements OnInit {
 
   pessoa = new Pessoa();
-  exibindoFormularioContato = false;
-  contato: Contato;
 
   constructor(
     private pessoaService: PessoaService,
@@ -93,10 +91,5 @@ export class PessoaCadastroComponent implements OnInit {
 
   atualizarTitulo() {
     this.titulo.setTitle(`Edição de pessoa: ${this.pessoa.nome}`);
-  }
-
-  prepararNovoContato() {
-    this.exibindoFormularioContato = true;
-    this.contato = new Contato();
   }
 }
