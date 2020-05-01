@@ -115,18 +115,50 @@
         </textarea>
       </div>
 
-      <div class="ui-g-6  ui-g-offset-6  ui-md-2  ui-md-offset-10  ui-fluid">
-        <p-fileUpload 
-          name="anexo"
-          mode="basic"
-          auto="true"
-          maxFileSize="100000000"
-          chooseLabel="Anexar"
-          accept="image/*,application/*"
-          [url]="urlUploadAnexo"
-          (onBeforeSend)="antesUploadAnexo($event)">
+      <div 
+        class="ui-g-6  ui-g-offset-6  ui-md-2  ui-md-offset-10  ui-fluid" 
+        *ngIf="!formulario.get('anexo').value">
+          <p-fileUpload 
+            name="anexo"
+            mode="basic"
+            auto="true"
+            maxFileSize="100000000"
+            chooseLabel="Anexar"
+            accept="image/*,application/*"
+            [url]="urlUploadAnexo"
+            (onBeforeSend)="antesUploadAnexo($event)"
+            (onUpload)="aoTerminarUploadAnexo($event)"
+            (onError)="errorUpload($event)"
+            [hidden]="uploadEmAndamento">
+          </p-fileUpload>
 
-        </p-fileUpload>
+          <p-progressSpinner
+            [style]="{ width: '25px', height: '25px' }"
+            [hidden]="!uploadEmAndamento">
+          </p-progressSpinner>
+      </div>
+
+      <div
+        class="ui-g-12"
+        *ngIf="formulario.get('anexo').value"
+        dir="rtl">
+          <button
+            pButton
+            type="button"
+            class="ui-button-danger"
+            icon="fa-close"
+            pTooltip="Remover anexo"
+            tooltipPosition="top"
+            (click)="removerAnexo()">
+          </button>
+
+          <a
+            target="_blank"
+            pTooltop="Baixar anexo"
+            tooltipPosition="top"
+            [href]="formulario.get('urlAnexo').value">
+              {{ nomeAnexo }}
+          </a>
       </div>
 
       <div class="ui-g-12">
@@ -134,7 +166,7 @@
           pButton 
           type="submit" 
           label="Salvar" 
-          [disabled]="!formulario.valid">
+          [disabled]="!formulario.valid || uploadEmAndamento">
         </button>
 
         <button 
