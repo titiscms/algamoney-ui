@@ -53,17 +53,17 @@ label {
 }
 
 .col-estado {
-  width: 90px;
-  text-align: center;
+  width: 250px;
+  text-align: left;
 }
 
 .col-estado-header {
-  width: 90px;
+  width: 250px;
 }
 
 .col-status {
   width: 100px;
-  text-align: center;
+  text-align: left;
 }
 
 .col-status-header {

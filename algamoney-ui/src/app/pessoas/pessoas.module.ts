@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TooltipModule } from 'primeng/tooltip';
 import { PanelModule } from 'primeng/panel';
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { SharedModule } from '../shared/shared.module';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
@@ -29,6 +30,7 @@ import { PessoaCadastroContatoComponent } from './pessoa-cadastro-contato/pessoa
     TooltipModule,
     PanelModule,
     DialogModule,
+    DropdownModule,
 
     SharedModule,
     PessoasRoutingModule
