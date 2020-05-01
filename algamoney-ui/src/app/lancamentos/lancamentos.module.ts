@@ -12,6 +12,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TooltipModule } from 'primeng/tooltip';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -35,6 +36,7 @@ import { LancamentosRoutingModule } from './lancamentos-routing.module';
     InputTextModule,
     SelectButtonModule,
     TooltipModule,
+    FileUploadModule,
 
     SharedModule,
     LancamentosRoutingModule
