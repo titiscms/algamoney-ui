@@ -2,7 +2,7 @@
   <div class="ui-g-12">
     <button
       pButton
-      icon="fa-plus"
+      icon="fa fa-plus"
       label="Novo"
       type="button"
       class="ui-button-secondary"
@@ -29,7 +29,8 @@
           <td>{{ contato.telefone }}</td>
           <td class="col-acoes">
             <button
-              pButton icon="fa-pencil"
+              pButton 
+              icon="fa fa-pencil"
               type="button"
               pTooltip="Editar"
               tooltipPosition="top"
@@ -37,7 +38,8 @@
             </button>
 
           <button
-            pButton icon="fa-trash"
+            pButton 
+            icon="fa fa-trash"
             type="button"
             pTooltip="Excluir"
             tooltipPosition="top"
@@ -106,9 +108,9 @@
       </app-message>
 
       <app-message
-      [control]="emailContato"
-      error="email"
-      text="Informe um e-mail válido">
+        [control]="emailContato"
+        error="email"
+        text="Informe um e-mail válido">
     </app-message>
     </div>
 

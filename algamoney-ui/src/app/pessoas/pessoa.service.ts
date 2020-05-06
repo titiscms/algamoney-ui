@@ -1,9 +1,9 @@
-import { URLSearchParams } from '@angular/http';
+import { HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
-import { AuthHttp } from 'angular2-jwt';
 
+import { MoneyHttp } from './../seguranca/money-http';
 import { environment } from './../../environments/environment';
 import { Pessoa, Estado, Cidade } from './../core/model';
 
@@ -20,32 +20,32 @@ export class PessoaService {
   estadoUrl: string;
   cidadeUrl: string;
 
-
-  constructor(private http: AuthHttp) {
+  constructor(private http: MoneyHttp) {
     this.pessoaUrl = `${environment.apiUrl}/pessoas`;
     this.estadoUrl = `${environment.apiUrl}/estados`;
     this.cidadeUrl = `${environment.apiUrl}/cidades`;
-
   }
 
   pesquisar(filtro: PessoaFiltro): Promise<any> {
-    const params = new URLSearchParams();
-    params.set('page', filtro.pagina.toString());
-    params.set('size', filtro.itensPorPagina.toString());
+    let params = new HttpParams({
+      fromObject: {
+        page: filtro.pagina.toString(),
+        size: filtro.itensPorPagina.toString()
+      }
+    });
 
     if (filtro.nome) {
-      params.set('nome', filtro.nome);
+      params = params.append('nome', filtro.nome);
     }
 
-    return this.http.get(`${this.pessoaUrl}`, { search: params })
+    return this.http.get<any>(`${this.pessoaUrl}`, { params })
       .toPromise()
       .then(response => {
-        const responseJson = response.json();
-        const pessoas = responseJson.content;
+        const pessoas = response.content;
 
         const resultado = {
           pessoas,
-          total: responseJson.totalElements
+          total: response.totalElements
         }
 
         return resultado;
@@ -53,9 +53,9 @@ export class PessoaService {
   }
 
   listarTodas(): Promise<any> {
-    return this.http.get(`${this.pessoaUrl}`)
+    return this.http.get<any>(`${this.pessoaUrl}`)
       .toPromise()
-      .then(response => response.json().content);
+      .then(response => response.content);
   }
 
   excluir(codigo: number): Promise<void> {
@@ -65,40 +65,37 @@ export class PessoaService {
   }
 
   alterarStatus(codigo: number, ativo: boolean): Promise<void> {
-    return this.http.put(`${this.pessoaUrl}/${codigo}/ativo`, ativo)
+    const headers = new HttpHeaders().append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.pessoaUrl}/${codigo}/ativo`, ativo, { headers })
       .toPromise()
       .then(() => null);
   }
 
   adicionar(pessoa: Pessoa): Promise<Pessoa> {
-    return this.http.post(`${this.pessoaUrl}`, JSON.stringify(pessoa))
-      .toPromise()
-      .then(response => response.json());
+    return this.http.post<Pessoa>(`${this.pessoaUrl}`, pessoa)
+      .toPromise();
   }
 
   atualizar(pessoa: Pessoa): Promise<Pessoa> {
-    return this.http.put(`${this.pessoaUrl}/${pessoa.codigo}`, JSON.stringify(pessoa))
-      .toPromise()
-      .then(response => response.json());
+    return this.http.put<Pessoa>(`${this.pessoaUrl}/${pessoa.codigo}`, pessoa)
+      .toPromise();
   }
 
-  buscarPorCodigo(codigo: number) {
-    return this.http.get(`${this.pessoaUrl}/${codigo}`)
-      .toPromise()
-      .then(response => response.json());
+  buscarPorCodigo(codigo: number): Promise<Pessoa> {
+    return this.http.get<Pessoa>(`${this.pessoaUrl}/${codigo}`)
+      .toPromise();
   }
 
   listarEstados(): Promise<Estado[]> {
-    return this.http.get(this.estadoUrl)
-      .toPromise()
-      .then(response => response.json());
+    return this.http.get<Estado[]>(this.estadoUrl)
+      .toPromise();
   }
 
   pesquisarCidades(estado): Promise<Cidade[]> {
-    const params = new URLSearchParams();
-    params.set('estado', estado)
-    return this.http.get(this.cidadeUrl, { search: params })
-      .toPromise()
-      .then(response => response.json());
+    const params = new HttpParams().append('estado', estado);
+
+    return this.http.get<Cidade[]>(this.cidadeUrl, { params })
+      .toPromise();
   }
 }

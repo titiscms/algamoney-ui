@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { ToastyService } from 'ng2-toasty';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { CategoriaService } from './../../categorias/categoria.service';
@@ -32,7 +32,7 @@ export class LancamentoCadastroComponent implements OnInit {
     private categoriaService: CategoriaService,
     private pessoaService: PessoaService,
     private lancamentoService: LancamentoService,
-    private toastyService: ToastyService,
+    private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
     private router: Router,
@@ -73,7 +73,10 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   errorUpload(event) {
-    this.toastyService.error('Erro ao tentar enviar anexo!');
+    this.messageService.add({
+      severity: 'error',
+      detail: 'Erro ao tentar enviar anexo!'
+    });
 
     this.uploadEmAndamento = false;
   }
@@ -171,7 +174,10 @@ export class LancamentoCadastroComponent implements OnInit {
   adicionarLancamento() {
     return this.lancamentoService.adicionar(this.formulario.value)
       .then(lancamentoAdicionado => {
-        this.toastyService.success('Lançamento adicionado com sucesso!');
+        this.messageService.add({
+          severity: 'success',
+          detail: 'Lançamento adicionado com sucesso!'
+        });
 
         // form.reset();
         // this.lancamento = new Lancamento();
@@ -186,7 +192,10 @@ export class LancamentoCadastroComponent implements OnInit {
         // this.lancamento = lancamento;
         this.formulario.patchValue(lancamento);
 
-        this.toastyService.success('Lançamento alterado com sucesso!')
+        this.messageService.add({
+          severity: 'success',
+          detail: 'Lançamento alterado com sucesso!'
+        })
         this.atualizaTitulo();
       })
       .catch(erro => this.errorHandler.handle(erro));
