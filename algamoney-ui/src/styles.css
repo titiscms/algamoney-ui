@@ -78,3 +78,10 @@ label {
 .ui-dropdown-filter-container {
   width: 100%;
 }
+
+.ui-messages-error {
+  margin: 0;
+  background-color: #ff7777;
+  color: white;
+  font-weight: bold;
+}

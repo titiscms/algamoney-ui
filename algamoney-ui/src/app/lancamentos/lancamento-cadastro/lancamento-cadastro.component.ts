@@ -55,13 +55,13 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   antesUploadAnexo(event) {
-    event.xhr.setRequestHeader('Authorization', 'Bearer' + localStorage.getItem('token'));
-
+    // event.xhr.setRequestHeader('Authorization', 'Bearer' + localStorage.getItem('token'));
     this.uploadEmAndamento = true;
   }
 
   aoTerminarUploadAnexo(event) {
-    const anexo = JSON.parse(event.xhr.response);
+    // const anexo = JSON.parse(event.xhr.response);
+    const anexo = event.originalEvent.body;
 
     this.formulario.patchValue({
       anexo: anexo.nome,

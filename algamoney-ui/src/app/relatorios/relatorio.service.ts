@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 
-import 'rxjs/add/operator/toPromise';
+
 import * as moment from 'moment';
 
 import { MoneyHttp } from './../seguranca/money-http';

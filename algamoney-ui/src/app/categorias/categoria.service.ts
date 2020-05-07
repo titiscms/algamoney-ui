@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import 'rxjs/add/operator/toPromise';
+
 
 import { MoneyHttp } from './../seguranca/money-http';
 import { environment } from './../../environments/environment';
