@@ -3,9 +3,9 @@ import { FormControl  } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { MessageService } from 'primeng/components/common/messageservice';
+import { MessageService } from 'primeng/api';
 
-import { Pessoa, Contato } from 'app/core/model';
+import { Pessoa } from 'app/core/model';
 import { PessoaService } from '../pessoa.service';
 import { ErrorHandlerService } from 'app/core/error-handler.service';
 

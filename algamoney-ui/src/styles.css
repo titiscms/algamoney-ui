@@ -14,8 +14,9 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-a, button {
-  margin-right: .25em;
+a.ui-button:hover {
+  color: #ffffff!important;
+  background-color: #005b9f;
 }
 
 label {
@@ -52,6 +53,14 @@ label {
   text-align: center;
 }
 
+.col-acoes .ui-button {
+  margin: 2px;
+}
+
+.cadastro-acoes .ui-button {
+  margin-right: 5px;
+}
+
 .col-acoes-header {
   width: 100px;
 }
@@ -74,6 +83,10 @@ label {
   width: 100px;
 }
 
+.label-spaced {
+  margin: 5px;
+}
+
 .ui-dropdown-filter-container {
   width: 100%;
 }
@@ -83,4 +96,10 @@ label {
   background-color: #a80000;
   color: white;
   font-weight: bold;
+}
+
+.relatorio-filtro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

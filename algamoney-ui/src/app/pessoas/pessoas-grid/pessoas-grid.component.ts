@@ -1,7 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 
-import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/components/common/messageservice';
+import { LazyLoadEvent, ConfirmationService, MessageService } from 'primeng/api';
 
 import { PessoaFiltro, PessoaService } from './../pessoa.service';
 import { PessoasPesquisaComponent } from './../pessoas-pesquisa/pessoas-pesquisa.component';

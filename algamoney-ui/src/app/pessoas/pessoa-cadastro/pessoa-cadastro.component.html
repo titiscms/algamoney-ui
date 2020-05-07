@@ -128,7 +128,6 @@
         <label>Estado</label>
         <p-dropdown
           placeholder="Selecione..."
-          [autoWidth]="false"
           [filter]="true"
           [options]="estados"
           [(ngModel)]="estadoSelecionado"
@@ -149,7 +148,6 @@
         <label>Cidade</label>
         <p-dropdown
           placeholder="Selecione..."
-          [autoWidth]="false"
           [filter]="true"
           [options]="cidades"
           [(ngModel)]="pessoa.endereco.cidade.codigo"
@@ -174,9 +172,9 @@
       </div>
 
       <!-- Botões -->
-      <div class="ui-g-12">
+      <div class="ui-g-12  cadastro-acoes">
         <button 
-          pButton 
+          pButton
           type="submit" 
           label="Salvar" 
           [disabled]="!pessoaCadastroForm.valid">

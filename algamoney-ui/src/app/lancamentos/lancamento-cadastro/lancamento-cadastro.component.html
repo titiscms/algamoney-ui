@@ -87,7 +87,6 @@
         <p-dropdown 
           name="categoria"
           [options]="categorias" 
-          [autoWidth]="false" 
           placeholder="Selecione"  
           formControlName="codigo">
         </p-dropdown>
@@ -98,7 +97,6 @@
         <p-dropdown 
           name="pessoa"
           [options]="pessoas" 
-          [autoWidth]="false" 
           [filter]="true" 
           placeholder="Selecione"  
           formControlName="codigo">
@@ -161,7 +159,7 @@
           </a>
       </div>
 
-      <div class="ui-g-12">
+      <div class="ui-g-12  cadastro-acoes">
         <button 
           pButton 
           type="submit" 
