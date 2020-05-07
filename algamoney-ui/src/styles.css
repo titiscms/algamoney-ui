@@ -50,7 +50,6 @@ label {
 .col-acoes {
   width: 100px;
   text-align: center;
-  margin-left: 50px;
 }
 
 .col-acoes-header {
@@ -81,7 +80,7 @@ label {
 
 .ui-messages-error {
   margin: 0;
-  background-color: #ff7777;
+  background-color: #a80000;
   color: white;
   font-weight: bold;
 }

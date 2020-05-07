@@ -18,7 +18,7 @@ export class LancamentosGridComponent {
   @Input() lancamentos = [];
   @Input() totalRegistros: LancamentosPesquisaComponent;
   @Input() filtro: LancamentoFiltro;
-  @ViewChild('tabela') grid;
+  @ViewChild('tabela', {static: true}) grid;
 
   constructor(
     private lancamentoPesquisa: LancamentosPesquisaComponent,

@@ -18,7 +18,7 @@ export class PessoasGridComponent {
   @Input() pessoas = [];
   @Input() totalRegistros: PessoasPesquisaComponent
   @Input() filtro: PessoaFiltro;
-  @ViewChild('tabela') grid;
+  @ViewChild('tabela', {static: true}) grid;
 
   constructor(
     private pessoaPesquisa: PessoasPesquisaComponent,
