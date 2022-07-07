@@ -25,7 +25,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng2-toasty": "^4.0.3",
     "ngx-currency": "^2.3.3",
     "primeicons": "^2.0.0",
